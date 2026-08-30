@@ -12,6 +12,7 @@ public class RowWinningStrategy implements WinningStratgy {
     private int size;
 
     public RowWinningStrategy() {
+        this.size = size;
         this.rowMaps = new HashMap[size];
 
         for(int i=0;i < size;i++){
@@ -20,7 +21,7 @@ public class RowWinningStrategy implements WinningStratgy {
     }
 
     @Override
-    public boolean checkWinner(Move move, Board board) {
+    public boolean checkWinner(Move move) {
         //Get the current player  and current row
         Player currentPlayer = move.getPlayer();
         int row =  move.getCell().getRow();
@@ -29,9 +30,11 @@ public class RowWinningStrategy implements WinningStratgy {
 
         Character character = currentPlayer.getSymbol().getCharacter();
 
-        if(currRowMap.containsKey(character)){
-            currRowMap.put(character, currRowMap.getOrDefault(character,0)+1);
+        if(!currRowMap.containsKey(character)){
+            currRowMap.put(character, 0);
         }
-        return false;
+        currRowMap.put(character, currRowMap.get(character) + 1);
+
+        return currRowMap.get(character) == size;
     }
 }
