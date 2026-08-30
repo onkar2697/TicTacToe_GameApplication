@@ -19,7 +19,6 @@ public class BotPlayer extends Player {
         super(name, symbol, playerType);
         this.difficultyLevel = difficultyLevel;
         this.playingStrategy = BotPlayingStrategyFactory.getBotPlayingStrategy(difficultyLevel);
-
         //Tis code voilates SRP(Single Responsibility Principle and OCP perfect use case of factory
         //Create Seperate Factory Class
 //        if(difficultyLevel == BotDifficultyLevel.HARD){
@@ -31,7 +30,10 @@ public class BotPlayer extends Player {
 //        if(difficultyLevel == BotDifficultyLevel.MEDIUM){
 //            this.playingStrategy = new MediumBotplayingStrategy()
 //        }
+    }
 
+    public Move makeMove(Board board){
+        return null;
     }
 
 }

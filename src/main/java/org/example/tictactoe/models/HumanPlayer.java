@@ -8,4 +8,9 @@ public class HumanPlayer extends Player {
         super(name, symbol, playerType);
     }
 
+    @Override
+    public Move makeMove(Board board) {
+        return null;
+    }
+
 }

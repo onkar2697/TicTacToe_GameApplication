@@ -36,4 +36,6 @@ public abstract class Player {
     public void setPlayerType(PlayerType playerType) {
         this.playerType = playerType;
     }
+
+    public abstract Move makeMove(Board board);
 }
